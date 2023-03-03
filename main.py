@@ -1,7 +1,10 @@
+import FullChecker
+import os
 import re
 import requests
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -11,6 +14,11 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# Extract the downloaded file to the "Child Drivers" folder
+extract_path = Path(os.path.dirname(os.path.abspath(__file__))) / "Drivers"
+# Specify the path to the Chrome web driver executable
+webdriver_service = Service(str(extract_path)+r"\chromedriver.exe")
+# print(str(extract_path)+r"\chromedriver.exe")
 
 while True:
     port = input("Choose Import / Export = ")
@@ -69,8 +77,6 @@ df = df.dropna()
 # print(df)
 
 
-# Specify the path to the Chrome web driver executable
-webdriver_service = Service(r"C:\chromedriver_win32\chromedriver.exe")
 # Set up Selenium to use Chrome browser
 chrome_options = Options()
 chrome_options.add_argument('--headless')  # Use headless mode to avoid opening a visible browser window
@@ -157,12 +163,12 @@ print(val)
 # Find the username input field and enter your username
 # username_input = driver.find_element_by_id("edit-name")
 username_input = driver.find_element(By.ID, "edit-name") # Find the element with id "edit-name"
-username_input.send_keys("tyson5262")
+username_input.send_keys("username_jcp")
 
 # Find the password input field and enter your password
 # password_input = driver.find_element_by_id("edit-pass")
 password_input = driver.find_element(By.ID, "edit-pass") # Find the element with id "edit-pass"
-password_input.send_keys("ilest@1989")
+password_input.send_keys("Password123")
 
 # Find the captcha input field and enter your captcha
 # captcha_input = driver.find_element_by_id("edit-pass")
