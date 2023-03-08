@@ -83,20 +83,6 @@ closest_version_number = available_version_numbers[closest_index]
 # Set the URL to download the Chrome Driver
 url = r'https://chromedriver.storage.googleapis.com/'+closest_version_number+r'/chromedriver_win32.zip'
 
-# # Set the path to save the downloaded file
-# download_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'chromedriver.zip')
-
-# # Download the file from the specified URL
-# urllib.request.urlretrieve(url, download_path)
-
-# # Unzip the downloaded file to the same folder
-# with zipfile.ZipFile(download_path, 'r') as zip_ref:
-#     zip_ref.extractall(os.path.dirname(download_path))
-
-# # Delete the downloaded zip file
-# os.remove(download_path)
-
-
 # Set the path to save the downloaded file
 download_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'chromedriver.zip')
 # Delete the downloaded zip file if it exists
@@ -108,6 +94,7 @@ urllib.request.urlretrieve(url, download_path)
 
 # Extract the downloaded file to the "Child Drivers" folder
 extract_path = Path(os.path.dirname(os.path.abspath(__file__))) / "Drivers"
+
 # Delete the path if Exists
 if os.path.exists(extract_path):
     shutil.rmtree(extract_path)

@@ -158,7 +158,7 @@ if match:
 else:
     print("No match found.")
 
-print(val)
+# print(val)
 
 # Find the username input field and enter your username
 # username_input = driver.find_element_by_id("edit-name")
